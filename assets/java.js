@@ -1,4 +1,18 @@
 // Survey;
+
+// timer
+var count = 60;
+var interval = setInterval(function(){
+  document.getElementById('count').innerHTML=count;
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+    document.getElementById('count').innerHTML='Done';
+    // or...
+    window.location.href = "highscore.html";
+  }
+}, 1000);
+//Arrays
 var questionsAnswers = [
     { question: "Whats the capital of Texas?", answer: 3 },
     { question: "What color is the sky?", answer: 1 },
@@ -27,7 +41,7 @@ var questionsAnswers = [
   $(".answers2").text(answers[0][2]);
   $(".answers3").text(answers[0][3]);
   $(".answers4").text(answers[0][4]);
-  var index = 0;
+  var index = 0; //Logic //
   $(".answers").on("click", function () {
     var buttonPressed = $(this).val();
     if (parseInt(buttonPressed) === parseInt(questionsAnswers[index].answer)) {
